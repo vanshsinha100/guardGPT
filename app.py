@@ -21,7 +21,7 @@ def transform_text(text):
 
 #tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
-vectorizer = pickle.load(open('vectorizer.pkl,'rb')
+vectorizer = pickle.load(open('vectorizer.pkl','rb'))
 
 st.title("AI Jailbreak Prompt Classifier")
 
@@ -32,7 +32,7 @@ if st.button('Predict'):
     # 1. preprocess
     transformed_text_ai = transform_text(input_prompt)
     # 2. vectorize
-    vectorized = vectorizer.transform(transformed_text_ai).toarray()
+    vectorized = vectorizer.transform([transformed_text_ai]).toarray()
     # 3. predict
     result = model.predict(vectorized)[0]
     # 4. Display
